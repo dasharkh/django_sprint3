@@ -9,8 +9,8 @@ def index(request):
     post_list = Post.objects.filter(
         is_published=True,
         category__is_published=True,
-        pub_date__date__lte=timezone.now()
-    ).order_by('title')[0:5]
+        pub_date__lte=timezone.now()
+    ).order_by('title')[:5]
     context = {'post_list': post_list}
     return render(request, template, context)
 

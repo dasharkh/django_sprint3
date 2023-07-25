@@ -7,6 +7,7 @@ class PostInline(admin.StackedInline):
     extra = 0
 
 
+@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = (
         'title',
@@ -22,6 +23,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display_links = ('title',)
 
 
+@admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     inlines = (
         PostInline,
@@ -38,6 +40,4 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('title',)
 
 
-admin.site.register(Post, PostAdmin)
-admin.site.register(Category, CategoryAdmin)
 admin.site.register(Location)
