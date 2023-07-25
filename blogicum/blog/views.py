@@ -21,7 +21,7 @@ def post_detail(request, id):
         Post.objects.filter(
             is_published=True,
             category__is_published=True,
-            pub_date__date__lte=timezone.now()
+            pub_date__lte=timezone.now()
         ), pk=id
     )
     context = {'post': post}
